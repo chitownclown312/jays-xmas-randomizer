@@ -14,3 +14,19 @@
 .result-open{overflow:hidden}
 #naughty.active-naughty{background:#7d0712;box-shadow:0 0 18px #8d0815}
 @media(max-width:620px){.result{max-height:90vh;padding-top:52px}.result-close{right:8px;top:8px}}
+
+/* v2.4: result overlay lives outside the stage stacking context */
+.stage{isolation:auto;z-index:auto}
+.controls{z-index:4}
+.result-backdrop{z-index:9998}
+.result{z-index:9999}
+.result-close{z-index:10000}
+.result .copy{min-width:0;padding-right:34px}
+.result .copy h2,.result .copy h3,.result .copy p{position:relative;z-index:1}
+.result .actions{position:relative;z-index:1}
+@media(max-width:620px){
+  .result{grid-template-columns:1fr;width:min(92vw,520px);padding:50px 18px 20px}
+  .result .copy{padding-right:0;text-align:center}
+  .copy h2{font-size:28px}
+  .copy h3{font-size:18px}
+}
